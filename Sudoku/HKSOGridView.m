@@ -9,62 +9,60 @@
 #import "HKSOGridView.h"
 
 @interface HKSOGridView (){
-    NSMutableArray* cells;
+    NSMutableArray* _cells;
     
-    id target;
-    
-    SEL action;
-    
+    id _target;
+    SEL _action;
 }
 
 @end
-
 
 @implementation HKSOGridView
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
+    
     if (self) {
         // Initialization code
+        _cells = [[NSMutableArray alloc] init];
         
-        cells = [[NSMutableArray alloc] init];
-        
-        CGFloat x = frame.size.height/24.0;
-        CGFloat y = frame.size.height/24.0;
         CGFloat buttonSize = frame.size.height/12.0;
-        CGFloat thickBorder = frame.size.height/24.0;
-        CGFloat thinBorder = frame.size.height/72.0;
+        CGFloat thickBorder = buttonSize/2;
+        CGFloat thinBorder = buttonSize/6;
         
-        for (int i = 1; i < 10; i++){
-            for (int j = 1; j < 10; j++){
+        CGFloat x = thickBorder;
+        CGFloat y = thickBorder;
+        
+        for (int row = 1; row <= 9; ++row) {
+            for (int column = 1; column <= 9; ++column) {
                 CGRect buttonFrame = CGRectMake (x,y,buttonSize,buttonSize);
                 UIButton* button = [[UIButton alloc] initWithFrame:buttonFrame];
                 button.backgroundColor = [UIColor whiteColor];
-                button.tag = j*10+i; // tag is a 2 digit number, column-row
+                button.tag = column*10 + row; // tag is a 2 digit number, column-row
                 
                 UIImage* image = [self imageWithColor:[UIColor yellowColor]];
                 [button setBackgroundImage:image forState:UIControlStateHighlighted];
                 [button setShowsTouchWhenHighlighted:YES];
                 
-                [cells addObject:button];
+                [_cells addObject:button];
                 [self addSubview:button];
                 
-                [button addTarget:self action:@selector(cellSelected:) forControlEvents:UIControlStateHighlighted];
+                [button addTarget:self action:@selector(cellSelected:) forControlEvents: UIControlEventTouchDown];
 
-                if (j == 9){
-                    x = frame.size.height/24.0;
+                // calculate x values for the next column
+                if (column == 9) {
+                    x = thickBorder;
                 }
-
-                else if (j%3 == 0 ){
+                else if (column%3 == 0) {
                     x = x + buttonSize + thickBorder;
                 }
                 else {
                     x = x + buttonSize + thinBorder;
-
                 }
             }
-            if (i%3 == 0 ){
+            // calculate y values for the next row
+            if (row%3 == 0) {
                 y = y + buttonSize + thickBorder;
             }
             else {
@@ -77,24 +75,24 @@
 
 - (void) setValueAtRow:(int)row column:(int)col to:(int)value
 {
-    UIButton* button = [cells objectAtIndex:9*col+row];
+    UIButton* button = [_cells objectAtIndex:9*col+row];
     
+    // 0 represents a blank cell
     if (value != 0) {
         [button setTitle:[NSString stringWithFormat:@"%d",value] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
-    
 }
 
 - (void) addTarget: (id) theTarget action:(SEL)theAction
 {
-    target = theTarget;
-    action = theAction;
+    _target = theTarget;
+    _action = theAction;
 }
 
 - (void) cellSelected:(id)sender
 {
-    [target performSelector:action withObject:((UIButton*) sender)];
+    [_target performSelector:_action withObject:((UIButton*) sender)];
 }
 
 - (UIImage *)imageWithColor:(UIColor *)color {

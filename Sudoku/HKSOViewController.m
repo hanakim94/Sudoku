@@ -33,12 +33,10 @@ int initialGrid [9][9]={
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    
-    self.view.backgroundColor = [UIColor whiteColor];
     
     // create grid frame
     CGRect frame = self.view.frame;
+    
     CGFloat x = CGRectGetWidth(frame)*.1;
     CGFloat y = CGRectGetHeight(frame)*.1;
     CGFloat size = MIN(CGRectGetWidth(frame), CGRectGetHeight(frame))*.80;
@@ -57,17 +55,17 @@ int initialGrid [9][9]={
 
 - (void) initializeGrid
 {
-    
-    for (int i = 0; i < 9; ++i) {
-        for (int j = 0 ; j < 9; ++j)  {
-            [(HKSOGridView*)_gridView setValueAtRow:i column:j to: initialGrid[i][j]];
+    for (int row = 0; row < 9; ++row) {
+        for (int column = 0; column < 9; ++column) {
+            [(HKSOGridView*)_gridView setValueAtRow:row column:column to: initialGrid[row][column]];
         }
     }
 }
 
 - (void) gridCellSelected:(id) cell
 {
-    NSLog(@"Button %d was pressed", ((UIButton*)cell).tag);
+    UIButton * button = (UIButton *) cell;
+    NSLog(@"Row: %d, Column: %d", button.tag%10, button.tag/10);
 }
 
 - (void)didReceiveMemoryWarning

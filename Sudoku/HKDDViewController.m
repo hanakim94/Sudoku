@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Hana Kim Sean Okeeffe. All rights reserved.
 //
 
-#import "HKSOViewController.h"
-#import "HKSOGridView.h"
+#import "HKDDViewController.h"
+#import "HKDDGridView.h"
 
 
 int initialGrid [9][9]={
@@ -22,13 +22,13 @@ int initialGrid [9][9]={
     {8,0,0,3,0,2,7,4,0}
 };
 
-@interface HKSOViewController () {
+@interface HKDDViewController () {
     UIView * _gridView;
 }
 
 @end
 
-@implementation HKSOViewController
+@implementation HKDDViewController
 
 - (void)viewDidLoad
 {
@@ -44,12 +44,12 @@ int initialGrid [9][9]={
     CGRect gridFrame = CGRectMake(x, y, size, size);
     
     // create grid view
-    _gridView = [[HKSOGridView alloc] initWithFrame:gridFrame];
+    _gridView = [[HKDDGridView alloc] initWithFrame:gridFrame];
     _gridView.backgroundColor = [UIColor blackColor];
 
     [self initializeGrid];
     [self.view addSubview:_gridView];
-    [(HKSOGridView*)_gridView addTarget:(self) action:@selector(gridCellSelected:)];
+    [(HKDDGridView*)_gridView addTarget:(self) action:@selector(gridCellSelected:)];
     
 }
 
@@ -57,7 +57,7 @@ int initialGrid [9][9]={
 {
     for (int row = 0; row < 9; ++row) {
         for (int column = 0; column < 9; ++column) {
-            [(HKSOGridView*)_gridView setValueAtRow:row column:column to: initialGrid[row][column]];
+            [(HKDDGridView*)_gridView setValueAtRow:row column:column to: initialGrid[row][column]];
         }
     }
 }

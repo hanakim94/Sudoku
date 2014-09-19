@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Hana Kim Sean Okeeffe. All rights reserved.
 //
 
-#import "HKSOAppDelegate.h"
+#import "HKDDAppDelegate.h"
 
-@implementation HKSOAppDelegate
+@implementation HKDDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

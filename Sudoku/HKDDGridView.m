@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Hana Kim Sean Okeeffe. All rights reserved.
 //
 
-#import "HKSOGridView.h"
+#import "HKDDGridView.h"
 
-@interface HKSOGridView (){
+@interface HKDDGridView (){
     NSMutableArray* _cells;
     
     id _target;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation HKSOGridView
+@implementation HKDDGridView
 
 - (id)initWithFrame:(CGRect)frame
 {

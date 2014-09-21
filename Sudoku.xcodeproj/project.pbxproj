@@ -23,6 +23,7 @@
 		D884C29B19C25E5A00964320 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D884C29919C25E5A00964320 /* InfoPlist.strings */; };
 		D884C29D19C25E5A00964320 /* SudokuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D884C29C19C25E5A00964320 /* SudokuTests.m */; };
 		D8CA563D19C3740D0050147B /* HKDDGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CA563C19C3740D0050147B /* HKDDGridView.m */; };
+		D8CA56D019CE8C470050147B /* HKDDGridModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CA56CF19CE8C470050147B /* HKDDGridModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		D884C29C19C25E5A00964320 /* SudokuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SudokuTests.m; sourceTree = "<group>"; };
 		D8CA563B19C3740D0050147B /* HKDDGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKDDGridView.h; sourceTree = "<group>"; };
 		D8CA563C19C3740D0050147B /* HKDDGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKDDGridView.m; sourceTree = "<group>"; };
+		D8CA56CE19CE8C470050147B /* HKDDGridModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKDDGridModel.h; sourceTree = "<group>"; };
+		D8CA56CF19CE8C470050147B /* HKDDGridModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKDDGridModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,8 @@
 				D8CA563C19C3740D0050147B /* HKDDGridView.m */,
 				CBB2742319CCB1C20056DBE0 /* HKDDNumPadView.h */,
 				CBB2742419CCB1C20056DBE0 /* HKDDNumPadView.m */,
+				D8CA56CE19CE8C470050147B /* HKDDGridModel.h */,
+				D8CA56CF19CE8C470050147B /* HKDDGridModel.m */,
 				D884C28919C25E5A00964320 /* Images.xcassets */,
 				D884C27819C25E5A00964320 /* Supporting Files */,
 			);
@@ -260,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8CA56D019CE8C470050147B /* HKDDGridModel.m in Sources */,
 				CBB2742519CCB1C20056DBE0 /* HKDDNumPadView.m in Sources */,
 				D884C27E19C25E5A00964320 /* main.m in Sources */,
 				D884C28219C25E5A00964320 /* HKDDAppDelegate.m in Sources */,

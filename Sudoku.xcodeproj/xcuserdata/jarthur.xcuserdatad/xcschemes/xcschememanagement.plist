@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>OCLint.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Sudoku.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>D884C28E19C25E5A00964320</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D8CA56D119CF69E10050147B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

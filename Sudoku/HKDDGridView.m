@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Hana Kim Sean Okeeffe. All rights reserved.
 //
 
-#import "HKSOGridView.h"
+#import "HKDDGridView.h"
 
-@interface HKSOGridView (){
+@interface HKDDGridView (){
     NSMutableArray* _cells;
     
     id _target;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation HKSOGridView
+@implementation HKDDGridView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -34,8 +34,8 @@
         CGFloat x = thickBorder;
         CGFloat y = thickBorder;
         
-        for (int row = 1; row <= 9; ++row) {
-            for (int column = 1; column <= 9; ++column) {
+        for (int row = 0; row < 9; ++row) {
+            for (int column = 0; column < 9; ++column) {
                 CGRect buttonFrame = CGRectMake (x,y,buttonSize,buttonSize);
                 UIButton* button = [[UIButton alloc] initWithFrame:buttonFrame];
                 button.backgroundColor = [UIColor whiteColor];
@@ -51,10 +51,10 @@
                 [button addTarget:self action:@selector(cellSelected:) forControlEvents: UIControlEventTouchDown];
 
                 // calculate x values for the next column
-                if (column == 9) {
+                if (column == 8) {
                     x = thickBorder;
                 }
-                else if (column%3 == 0) {
+                else if (column%3 == 2) {
                     x = x + buttonSize + thickBorder;
                 }
                 else {
@@ -62,7 +62,7 @@
                 }
             }
             // calculate y values for the next row
-            if (row%3 == 0) {
+            if (row%3 == 2) {
                 y = y + buttonSize + thickBorder;
             }
             else {
@@ -73,14 +73,19 @@
     return self;
 }
 
-- (void) setValueAtRow:(int)row column:(int)col to:(int)value
+- (void) setValueAtRow:(int)row column:(int)col to:(int)value initial:(bool)initial
 {
-    UIButton* button = [_cells objectAtIndex:9*col+row];
+    UIButton* button = [_cells objectAtIndex:9*row+col];
     
     // 0 represents a blank cell
     if (value != 0) {
         [button setTitle:[NSString stringWithFormat:@"%d",value] forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        if (initial){
+            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        }
+        else{
+            [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        }
     }
 }
 

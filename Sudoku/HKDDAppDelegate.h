@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HKSOAppDelegate : UIResponder <UIApplicationDelegate>
+@interface HKDDAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

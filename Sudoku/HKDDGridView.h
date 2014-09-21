@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HKSOGridView : UIView
+@interface HKDDGridView : UIView
 
-- (void) setValueAtRow:(int)row column:(int)col to:(int)value;
-
+- (void) setValueAtRow:(int)row column:(int)col to:(int)value initial:(bool)initial;
 - (void) addTarget: (id) theTarget action:(SEL)theAction;
 
 @end

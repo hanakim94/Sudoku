@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HKSOGridView.h"
+#import "HKDDGridView.h"
 
-@interface HKSOViewController : UIViewController
+@interface HKDDViewController : UIViewController
 
 - (void) gridCellSelected:(id)sender;
 

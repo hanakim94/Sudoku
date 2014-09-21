@@ -73,14 +73,19 @@
     return self;
 }
 
-- (void) setValueAtRow:(int)row column:(int)col to:(int)value
+- (void) setValueAtRow:(int)row column:(int)col to:(int)value initial:(bool)initial
 {
     UIButton* button = [_cells objectAtIndex:9*row+col];
     
     // 0 represents a blank cell
     if (value != 0) {
         [button setTitle:[NSString stringWithFormat:@"%d",value] forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        if (initial){
+            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        }
+        else{
+            [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        }
     }
 }
 

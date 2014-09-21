@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CBB2742219CCAFD90056DBE0 /* HKDDgridModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB2742119CCAFD90056DBE0 /* HKDDgridModel.m */; };
 		CBB2742519CCB1C20056DBE0 /* HKDDNumPadView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB2742419CCB1C20056DBE0 /* HKDDNumPadView.m */; };
 		D884C27219C25E5A00964320 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D884C27119C25E5A00964320 /* Foundation.framework */; };
 		D884C27419C25E5A00964320 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D884C27319C25E5A00964320 /* CoreGraphics.framework */; };
@@ -37,8 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CBB2742019CCAFD90056DBE0 /* HKDDgridModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKDDgridModel.h; sourceTree = "<group>"; };
-		CBB2742119CCAFD90056DBE0 /* HKDDgridModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKDDgridModel.m; sourceTree = "<group>"; };
 		CBB2742319CCB1C20056DBE0 /* HKDDNumPadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKDDNumPadView.h; sourceTree = "<group>"; };
 		CBB2742419CCB1C20056DBE0 /* HKDDNumPadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKDDNumPadView.m; sourceTree = "<group>"; };
 		D884C26E19C25E5A00964320 /* Sudoku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sudoku.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,8 +127,6 @@
 				D8CA563C19C3740D0050147B /* HKDDGridView.m */,
 				CBB2742319CCB1C20056DBE0 /* HKDDNumPadView.h */,
 				CBB2742419CCB1C20056DBE0 /* HKDDNumPadView.m */,
-				CBB2742019CCAFD90056DBE0 /* HKDDgridModel.h */,
-				CBB2742119CCAFD90056DBE0 /* HKDDgridModel.m */,
 				D884C28919C25E5A00964320 /* Images.xcassets */,
 				D884C27819C25E5A00964320 /* Supporting Files */,
 			);
@@ -268,7 +263,6 @@
 				CBB2742519CCB1C20056DBE0 /* HKDDNumPadView.m in Sources */,
 				D884C27E19C25E5A00964320 /* main.m in Sources */,
 				D884C28219C25E5A00964320 /* HKDDAppDelegate.m in Sources */,
-				CBB2742219CCAFD90056DBE0 /* HKDDgridModel.m in Sources */,
 				D884C28819C25E5A00964320 /* HKDDViewController.m in Sources */,
 				D8CA563D19C3740D0050147B /* HKDDGridView.m in Sources */,
 			);

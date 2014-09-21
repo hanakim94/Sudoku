@@ -19,6 +19,7 @@ int initGrid [9][9]={{7,0,0,4,2,0,0,0,9},
     {0,0,0,8,6,0,0,0,2},
     {3,4,0,9,0,0,1,0,0},
     {8,0,0,3,0,2,7,4,0}};
+
 int cells [9][9]={{7,0,0,4,2,0,0,0,9},
     {0,0,9,5,0,0,0,0,4},
     {0,2,0,6,9,0,5,0,0},
@@ -41,20 +42,20 @@ int cells [9][9]={{7,0,0,4,2,0,0,0,9},
 
 - (void) setValueAtRow:(int)row column:(int)column to:(int)value
 {
-    NSLog(@"in setValueAtRow");
+    NSAssert(value<=9, @"Invalid: value > 9");
+    NSAssert(value>=0, @"Invalid: value < 0");
+    
     cells[row][column] = value;
 }
 
 - (bool) isMutableAtRow:(int)row column:(int)column
 {
-    NSLog(@"initalGrid value here: %d", initGrid[row][column]);
+
     return initGrid[row][column] == 0;
 }
 
 - (bool) isConsistentAtRow:(int)row column:(int)column for:(int)value
 {
-    NSLog(@"in isConsistentAtRow");
-    
     // Check the column
     for (int r = 0; r < 9; ++r){
         if (cells[r][column] == value){

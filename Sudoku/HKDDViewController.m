@@ -64,6 +64,8 @@
 
 - (void) initializeGrid
 {
+    [_gridModel generateGrid];
+    
     for (int row = 0; row < 9; ++row) {
         for (int column = 0; column < 9; ++column) {
             int value = [_gridModel getValueAtRow:row column:column];

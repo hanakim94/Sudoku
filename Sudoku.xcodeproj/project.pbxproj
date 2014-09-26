@@ -38,6 +38,10 @@
 		D884C29D19C25E5A00964320 /* SudokuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D884C29C19C25E5A00964320 /* SudokuTests.m */; };
 		D8CA563D19C3740D0050147B /* HKDDGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CA563C19C3740D0050147B /* HKDDGridView.m */; };
 		D8CA56D019CE8C470050147B /* HKDDGridModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CA56CF19CE8C470050147B /* HKDDGridModel.m */; };
+		D8CA56D819D386450050147B /* HKDDGridGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CA56D719D386450050147B /* HKDDGridGenerator.m */; };
+		D8CA56DB19D388650050147B /* grid1.txt in Resources */ = {isa = PBXBuildFile; fileRef = D8CA56D919D388640050147B /* grid1.txt */; };
+		D8CA56DC19D388650050147B /* grid2.txt in Resources */ = {isa = PBXBuildFile; fileRef = D8CA56DA19D388650050147B /* grid2.txt */; };
+		D8CA56DE19D396D00050147B /* allGrids.txt in Resources */ = {isa = PBXBuildFile; fileRef = D8CA56DD19D396D00050147B /* allGrids.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +80,11 @@
 		D8CA563C19C3740D0050147B /* HKDDGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKDDGridView.m; sourceTree = "<group>"; };
 		D8CA56CE19CE8C470050147B /* HKDDGridModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKDDGridModel.h; sourceTree = "<group>"; };
 		D8CA56CF19CE8C470050147B /* HKDDGridModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKDDGridModel.m; sourceTree = "<group>"; };
+		D8CA56D619D386450050147B /* HKDDGridGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKDDGridGenerator.h; sourceTree = "<group>"; };
+		D8CA56D719D386450050147B /* HKDDGridGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKDDGridGenerator.m; sourceTree = "<group>"; };
+		D8CA56D919D388640050147B /* grid1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grid1.txt; sourceTree = "<group>"; };
+		D8CA56DA19D388650050147B /* grid2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grid2.txt; sourceTree = "<group>"; };
+		D8CA56DD19D396D00050147B /* allGrids.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = allGrids.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +149,8 @@
 				D884C28319C25E5A00964320 /* Main.storyboard */,
 				D884C28619C25E5A00964320 /* HKDDViewController.h */,
 				D884C28719C25E5A00964320 /* HKDDViewController.m */,
+				D8CA56D619D386450050147B /* HKDDGridGenerator.h */,
+				D8CA56D719D386450050147B /* HKDDGridGenerator.m */,
 				D8CA563B19C3740D0050147B /* HKDDGridView.h */,
 				D8CA563C19C3740D0050147B /* HKDDGridView.m */,
 				CBB2742319CCB1C20056DBE0 /* HKDDNumPadView.h */,
@@ -155,6 +166,9 @@
 		D884C27819C25E5A00964320 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D8CA56DD19D396D00050147B /* allGrids.txt */,
+				D8CA56D919D388640050147B /* grid1.txt */,
+				D8CA56DA19D388650050147B /* grid2.txt */,
 				D884C27919C25E5A00964320 /* Sudoku-Info.plist */,
 				D884C27A19C25E5A00964320 /* InfoPlist.strings */,
 				D884C27D19C25E5A00964320 /* main.m */,
@@ -261,7 +275,10 @@
 			files = (
 				D884C28A19C25E5A00964320 /* Images.xcassets in Resources */,
 				D884C27C19C25E5A00964320 /* InfoPlist.strings in Resources */,
+				D8CA56DE19D396D00050147B /* allGrids.txt in Resources */,
+				D8CA56DB19D388650050147B /* grid1.txt in Resources */,
 				D884C28519C25E5A00964320 /* Main.storyboard in Resources */,
+				D8CA56DC19D388650050147B /* grid2.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +317,7 @@
 				CBB2742519CCB1C20056DBE0 /* HKDDNumPadView.m in Sources */,
 				D884C27E19C25E5A00964320 /* main.m in Sources */,
 				D884C28219C25E5A00964320 /* HKDDAppDelegate.m in Sources */,
+				D8CA56D819D386450050147B /* HKDDGridGenerator.m in Sources */,
 				D884C28819C25E5A00964320 /* HKDDViewController.m in Sources */,
 				D8CA563D19C3740D0050147B /* HKDDGridView.m in Sources */,
 			);
@@ -540,6 +558,7 @@
 				D8CA56D419CF69E10050147B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

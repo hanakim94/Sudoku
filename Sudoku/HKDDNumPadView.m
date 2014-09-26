@@ -8,14 +8,14 @@
 
 #import "HKDDNumPadView.h"
 
-//@interface HKDDNumPadView (){
+@interface HKDDNumPadView (){
     
     NSMutableArray* _cells;
     int _currentValue;
     
-//}
+}
 
-//@end
+@end
 
 @implementation HKDDNumPadView
 

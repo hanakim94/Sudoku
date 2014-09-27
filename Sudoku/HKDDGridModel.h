@@ -11,7 +11,7 @@
 @interface HKDDGridModel : NSObject
 
 @property NSMutableArray* initialGrid;
-@property NSMutableArray* cells;
+@property NSMutableArray* currentGrid;
 
 - (void)generateGrid;
 - (int)getValueAtRow:(int)row column:(int)column;

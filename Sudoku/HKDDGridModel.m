@@ -20,13 +20,16 @@ HKDDGridGenerator* _generator;
     _generator = [HKDDGridGenerator alloc];
     [_generator generateGrid];
     _initialGrid = [_generator getGrid];
-    _cells = _initialGrid;
+    _currentGrid = [[NSMutableArray alloc] init];
+    for(int i = 0; i < 81; ++i) {
+        [_currentGrid addObject:[_initialGrid objectAtIndex:i]];
+    }
 }
 
 - (int)getValueAtRow:(int)row column:(int)column
 {
-    NSLog(@"cells objectAtIndex: %@ ", [_cells objectAtIndex:(row*9 + column)]);
-    return [[_cells objectAtIndex:(row*9 + column)] intValue];
+    NSLog(@"cells objectAtIndex: %@ ", [_currentGrid objectAtIndex:(row*9 + column)]);
+    return [[_currentGrid objectAtIndex:(row*9 + column)] intValue];
 }
 
 - (void) setValueAtRow:(int)row column:(int)column to:(int)value
@@ -34,7 +37,7 @@ HKDDGridGenerator* _generator;
     NSAssert(value<=9, @"Invalid: value > 9");
     NSAssert(value>=0, @"Invalid: value < 0");
     
-    [_cells replaceObjectAtIndex:(row*9 + column) withObject:[NSNumber numberWithInt:value]];
+    [_currentGrid replaceObjectAtIndex:(row*9 + column) withObject:[NSNumber numberWithInt:value]];
 }
 
 - (bool) isMutableAtRow:(int)row column:(int)column
@@ -47,13 +50,13 @@ HKDDGridGenerator* _generator;
 {
     // Check the column
     for (int r = 0; r < 9; ++r){
-        if ([[_cells objectAtIndex:(r*9 + column)] intValue] == value){
+        if ([[_currentGrid objectAtIndex:(r*9 + column)] intValue] == value){
             return false;
         }
     }
     // Check the row
     for (int c = 0; c < 9; ++c){
-        if ([[_cells objectAtIndex:(row*9 + c)] intValue] == value){
+        if ([[_currentGrid objectAtIndex:(row*9 + c)] intValue] == value){
             return false;
         }
     }
@@ -66,7 +69,7 @@ HKDDGridGenerator* _generator;
         for (int c = 0; c < 3; ++c) {
             int rowIndex = 3*subgridRow + r;
             int colIndex = 3*subgridCol + c;
-            if ([[_cells objectAtIndex:rowIndex*9 + colIndex] intValue] == value){
+            if ([[_currentGrid objectAtIndex:rowIndex*9 + colIndex] intValue] == value){
                 return false;
             }
         }

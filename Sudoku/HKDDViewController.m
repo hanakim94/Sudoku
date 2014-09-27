@@ -49,10 +49,10 @@
     
     // create numpad view
     
-    CGFloat numPadX = x;
-    CGFloat numPadY = 2*y + size;
+    CGFloat numPadX = x/2;
+    CGFloat numPadY = 1.75*y + size;
     CGFloat numPadHeight = y;
-    CGFloat numPadWidth = size;
+    CGFloat numPadWidth = size+x;
     
     CGRect numPadFrame = CGRectMake(numPadX, numPadY, numPadWidth, numPadHeight);
     
@@ -90,9 +90,12 @@
     int currentValue = [(HKDDNumPadView*)_numPadView getCurrentValue];
     NSLog(@"Current value is: %d", currentValue);
     
-    if (![_gridModel isConsistentAtRow:row column:column for:currentValue]) {
-        NSLog(@"Not consistent!");
-        return;
+    // if not equal to zero, check if consistent
+    if (currentValue != 0){
+        if (![_gridModel isConsistentAtRow:row column:column for:currentValue]) {
+            NSLog(@"Not consistent!");
+            return;
+        }
     }
     
     NSLog(@"setting value to current value: %d", currentValue);
@@ -101,6 +104,26 @@
     
     // set gridModel's value to currentValue
     [_gridModel setValueAtRow:row column:column to:currentValue];
+}
+
+- (IBAction) newGame
+{
+    NSLog(@"new game");
+    [self initializeGrid];
+}
+
+- (IBAction) startOver
+{
+    NSLog(@"starting over");
+    
+    for (int row = 0; row < 9; ++row){
+        for (int column = 0; column < 9; ++column){
+            if ([_gridModel isMutableAtRow:row column:column]) {
+                [(HKDDGridView*)_gridView setValueAtRow:row column:column to:0 initial:NO];
+                [_gridModel setValueAtRow:row column:column to:0];
+            }
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -13,4 +13,8 @@
 
 - (void) gridCellSelected:(id)sender;
 
+- (IBAction) newGame;
+
+- (IBAction) startOver;
+
 @end

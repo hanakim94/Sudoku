@@ -28,12 +28,12 @@
         _cells = [[NSMutableArray alloc] init];
         
         CGFloat buttonSize = frame.size.width/12.0;
-        CGFloat thinBorder = buttonSize/4;
+        CGFloat thinBorder = buttonSize/8;
         
-        CGFloat x = (frame.size.width - (9*buttonSize + 8*thinBorder))/2;
+        CGFloat x = (frame.size.width - (10*buttonSize + 9*thinBorder))/2;
         CGFloat y = (frame.size.height - buttonSize)/2;
         
-        for (int cellNum = 0; cellNum < 9; ++cellNum) {
+        for (int cellNum = 0; cellNum < 10; ++cellNum) {
             CGRect buttonFrame = CGRectMake (x,y,buttonSize,buttonSize);
             UIButton* button = [[UIButton alloc] initWithFrame:buttonFrame];
             button.backgroundColor = [UIColor whiteColor];
@@ -47,25 +47,31 @@
             
             [button addTarget:self action:@selector(cellSelected:) forControlEvents: UIControlEventTouchDown];
             
-            [button setTitle:[NSString stringWithFormat:@"%d",cellNum+1] forState:UIControlStateNormal];
+            if (cellNum == 0){
+                [button setTitle:@"Erase" forState:UIControlStateNormal];
+
+            }
+            else {
+                [button setTitle:[NSString stringWithFormat:@"%d",cellNum] forState:UIControlStateNormal];
+            }
             [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             
             x += thinBorder + buttonSize;
         }
         
+        _currentValue = 0;
     }
     return self;
 }
 
 - (void) cellSelected:(id)sender
 {
-    if (_currentValue != 0) {
-        // return last selected button's background color to white
-        ((UIButton*)_cells[_currentValue - 1]).backgroundColor = [UIColor whiteColor];
-    }
-    // account for 0-index by adding 1
+
+    // return last selected button's background color to white
+    ((UIButton*)_cells[_currentValue]).backgroundColor = [UIColor whiteColor];
+
     UIButton* button = (UIButton*) sender;
-    _currentValue = button.tag + 1;
+    _currentValue = button.tag;
     
     NSLog(@" current value is now: %d", _currentValue);
     

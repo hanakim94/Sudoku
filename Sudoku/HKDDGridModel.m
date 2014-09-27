@@ -7,37 +7,29 @@
 //
 
 #import "HKDDGridModel.h"
+#import "HKDDGridGenerator.h"
 
 @implementation HKDDGridModel
 
-int initGrid [9][9]={{7,0,0,4,2,0,0,0,9},
-    {0,0,9,5,0,0,0,0,4},
-    {0,2,0,6,9,0,5,0,0},
-    {6,5,0,0,0,0,4,3,0},
-    {0,8,0,0,0,6,0,0,7},
-    {0,1,0,0,4,5,6,0,0},
-    {0,0,0,8,6,0,0,0,2},
-    {3,4,0,9,0,0,1,0,0},
-    {8,0,0,3,0,2,7,4,0}};
 
-int cells [9][9]={{7,0,0,4,2,0,0,0,9},
-    {0,0,9,5,0,0,0,0,4},
-    {0,2,0,6,9,0,5,0,0},
-    {6,5,0,0,0,0,4,3,0},
-    {0,8,0,0,0,6,0,0,7},
-    {0,1,0,0,4,5,6,0,0},
-    {0,0,0,8,6,0,0,0,2},
-    {3,4,0,9,0,0,1,0,0},
-    {8,0,0,3,0,2,7,4,0}};
+
+HKDDGridGenerator* _generator;
 
 - (void)generateGrid
 {
-    
+    _generator = [HKDDGridGenerator alloc];
+    [_generator generateGrid];
+    _initialGrid = [_generator getGrid];
+    _currentGrid = [[NSMutableArray alloc] init];
+    for(int i = 0; i < 81; ++i) {
+        [_currentGrid addObject:[_initialGrid objectAtIndex:i]];
+    }
 }
 
 - (int)getValueAtRow:(int)row column:(int)column
 {
-    return cells[row][column];
+    NSLog(@"cells objectAtIndex: %@ ", [_currentGrid objectAtIndex:(row*9 + column)]);
+    return [[_currentGrid objectAtIndex:(row*9 + column)] intValue];
 }
 
 - (void) setValueAtRow:(int)row column:(int)column to:(int)value
@@ -45,36 +37,39 @@ int cells [9][9]={{7,0,0,4,2,0,0,0,9},
     NSAssert(value<=9, @"Invalid: value > 9");
     NSAssert(value>=0, @"Invalid: value < 0");
     
-    cells[row][column] = value;
+    [_currentGrid replaceObjectAtIndex:(row*9 + column) withObject:[NSNumber numberWithInt:value]];
 }
 
 - (bool) isMutableAtRow:(int)row column:(int)column
 {
 
-    return initGrid[row][column] == 0;
+    return [[_initialGrid objectAtIndex:(row*9 + column)] intValue] == 0;
 }
 
 - (bool) isConsistentAtRow:(int)row column:(int)column for:(int)value
 {
     // Check the column
     for (int r = 0; r < 9; ++r){
-        if (cells[r][column] == value){
+        if ([[_currentGrid objectAtIndex:(r*9 + column)] intValue] == value){
             return false;
         }
     }
     // Check the row
     for (int c = 0; c < 9; ++c){
-        if (cells[row][c] == value){
+        if ([[_currentGrid objectAtIndex:(row*9 + c)] intValue] == value){
             return false;
         }
     }
     
     int subgridRow = row/3;
     int subgridCol = column/3;
+    
     // Check the square
     for (int r = 0; r < 3; ++r) {
         for (int c = 0; c < 3; ++c) {
-            if (cells[3*subgridRow + r][3*subgridCol + c] == value){
+            int rowIndex = 3*subgridRow + r;
+            int colIndex = 3*subgridCol + c;
+            if ([[_currentGrid objectAtIndex:rowIndex*9 + colIndex] intValue] == value){
                 return false;
             }
         }

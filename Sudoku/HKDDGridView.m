@@ -87,6 +87,9 @@
             [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         }
     }
+    else {
+        [button setTitle: @"" forState: UIControlStateNormal];
+    }
 }
 
 - (void) addTarget: (id) theTarget action:(SEL)theAction

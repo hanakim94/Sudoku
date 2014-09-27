@@ -11,8 +11,7 @@
 
 @implementation HKDDGridModel
 
-NSMutableArray* _initialGrid;
-NSMutableArray* _cells;
+
 
 HKDDGridGenerator* _generator;
 
@@ -26,6 +25,7 @@ HKDDGridGenerator* _generator;
 
 - (int)getValueAtRow:(int)row column:(int)column
 {
+    NSLog(@"cells objectAtIndex: %@ ", [_cells objectAtIndex:(row*9 + column)]);
     return [[_cells objectAtIndex:(row*9 + column)] intValue];
 }
 

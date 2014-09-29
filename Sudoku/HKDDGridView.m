@@ -3,12 +3,12 @@
 //  Sudoku
 //
 //  Created by HMC on 9/12/14.
-//  Copyright (c) 2014 Hana Kim Sean Okeeffe. All rights reserved.
+//  Copyright (c) 2014 Hana Kim Dani Demas. All rights reserved.
 //
 
 #import "HKDDGridView.h"
 
-@interface HKDDGridView (){
+@interface HKDDGridView() {
     NSMutableArray* _cells;
     
     id _target;
@@ -24,10 +24,10 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        // Initialization code
         _cells = [[NSMutableArray alloc] init];
         
         CGFloat buttonSize = frame.size.height/12.0;
+        
         CGFloat thickBorder = buttonSize/2;
         CGFloat thinBorder = buttonSize/6;
         
@@ -41,7 +41,8 @@
                 button.backgroundColor = [UIColor whiteColor];
                 button.tag = column*10 + row; // tag is a 2 digit number, column-row
                 
-                UIImage* image = [self imageWithColor:[UIColor yellowColor]];
+                UIImage* image = [self imageWithColor:[UIColor colorWithRed:133/255.0f green:184/255.0f blue:242/255.0f alpha:1]];
+                
                 [button setBackgroundImage:image forState:UIControlStateHighlighted];
                 [button setShowsTouchWhenHighlighted:YES];
                 
@@ -82,10 +83,13 @@
         [button setTitle:[NSString stringWithFormat:@"%d",value] forState:UIControlStateNormal];
         if (initial){
             [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            button.titleLabel.font = [UIFont systemFontOfSize:30];
         }
         else{
             [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+            [button.titleLabel setFont:[UIFont fontWithName:@"ChalkboardSE-Regular" size:30]];
         }
+        
     }
     else {
         [button setTitle: @"" forState: UIControlStateNormal];
@@ -116,15 +120,5 @@
     
     return image;
 }
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

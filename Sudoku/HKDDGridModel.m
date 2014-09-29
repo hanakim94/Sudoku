@@ -11,24 +11,23 @@
 
 @implementation HKDDGridModel
 
-
-
 HKDDGridGenerator* _generator;
 
-- (void)generateGrid
+- (void) generateGrid
 {
     _generator = [HKDDGridGenerator alloc];
     [_generator generateGrid];
+    
     _initialGrid = [_generator getGrid];
     _currentGrid = [[NSMutableArray alloc] init];
+    
     for(int i = 0; i < 81; ++i) {
         [_currentGrid addObject:[_initialGrid objectAtIndex:i]];
     }
 }
 
-- (int)getValueAtRow:(int)row column:(int)column
+- (int) getValueAtRow:(int)row column:(int)column
 {
-    NSLog(@"cells objectAtIndex: %@ ", [_currentGrid objectAtIndex:(row*9 + column)]);
     return [[_currentGrid objectAtIndex:(row*9 + column)] intValue];
 }
 
@@ -42,7 +41,6 @@ HKDDGridGenerator* _generator;
 
 - (bool) isMutableAtRow:(int)row column:(int)column
 {
-
     return [[_initialGrid objectAtIndex:(row*9 + column)] intValue] == 0;
 }
 
@@ -50,13 +48,13 @@ HKDDGridGenerator* _generator;
 {
     // Check the column
     for (int r = 0; r < 9; ++r){
-        if ([[_currentGrid objectAtIndex:(r*9 + column)] intValue] == value){
+        if ([[_currentGrid objectAtIndex:(r*9 + column)] intValue] == value) {
             return false;
         }
     }
     // Check the row
     for (int c = 0; c < 9; ++c){
-        if ([[_currentGrid objectAtIndex:(row*9 + c)] intValue] == value){
+        if ([[_currentGrid objectAtIndex:(row*9 + c)] intValue] == value) {
             return false;
         }
     }
@@ -69,7 +67,7 @@ HKDDGridGenerator* _generator;
         for (int c = 0; c < 3; ++c) {
             int rowIndex = 3*subgridRow + r;
             int colIndex = 3*subgridCol + c;
-            if ([[_currentGrid objectAtIndex:rowIndex*9 + colIndex] intValue] == value){
+            if ([[_currentGrid objectAtIndex:rowIndex*9 + colIndex] intValue] == value) {
                 return false;
             }
         }

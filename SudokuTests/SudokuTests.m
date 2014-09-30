@@ -53,6 +53,9 @@ NSMutableArray* _initialGrid;
         }
     }
     
+    XCTAssertTrue([[[_model currentGrid] objectAtIndex:0] intValue] == 1, @"Directly checking if setValue works at row 0 column 0");
+    XCTAssertTrue([[[_model currentGrid] objectAtIndex:3*9 + 6] intValue] == 4, @"Directly checking if setValue works at row 3 column 6");
+    
     // get the value of each cell and check if it's the correct value
     for (int row = 0; row < 9; ++row){
         for (int col = 0; col < 9; ++col){

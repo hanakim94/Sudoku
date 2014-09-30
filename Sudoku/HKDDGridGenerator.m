@@ -3,7 +3,7 @@
 //  Sudoku
 //
 //  Created by HMC on 9/24/14.
-//  Copyright (c) 2014 Hana Kim Sean Okeeffe. All rights reserved.
+//  Copyright (c) 2014 Hana Kim Dani Demas. All rights reserved.
 //
 
 #import "HKDDGridGenerator.h"
@@ -15,7 +15,9 @@ NSMutableArray* _grid;
 
 - (void) generateGrid {
     
-    _grid= [[NSMutableArray alloc] init];
+    _grid = [[NSMutableArray alloc] init];
+    
+    // open and read files grid1.txt and grid2.txt
     
     NSString* path1 = [[NSBundle mainBundle] pathForResource:@"grid1" ofType:@"txt"];
     NSString* path2 = [[NSBundle mainBundle] pathForResource:@"grid2" ofType:@"txt"];
@@ -29,38 +31,22 @@ NSMutableArray* _grid;
     NSString* allGrids = [NSString stringWithFormat: grid1, grid2];
 
     
+    // pick a grid randomly
+    
     int random = arc4random() % ([allGrids length])/82;
-    
-    NSLog (@" random: %d", random);
-    
     int gridNumber = random*82;
     
-    NSLog (@"gridNumber: %d", gridNumber);
-    
-    NSString* gridString;
-    
-    gridString = [allGrids substringWithRange: NSMakeRange(gridNumber, 81)];
+    NSString* gridString = [allGrids substringWithRange: NSMakeRange(gridNumber, 81)];
 
-    NSLog(@"gridString: %@", gridString);
-    
-    for (int i = 0; i < 81; ++i){
+    for (int i = 0; i < 81; ++i) {
         NSString* nextCell = [gridString substringWithRange: NSMakeRange(i, 1)];
-        
-        NSLog(@"%@", nextCell);
-        
-        int number = [NSNumber numberWithInt: [nextCell intValue]];
-        NSLog(@"number : %d", number);
-        
+
         if ([nextCell isEqual: @"."]){
             [_grid insertObject: [NSNumber numberWithInt:0] atIndex: i];
         }
         else {
             [_grid insertObject:[NSNumber numberWithInt: [nextCell intValue]] atIndex: i];
         }
-    }
-    
-    for (int j = 0; j < 81; ++j){
-        NSLog(@"%@", [_grid objectAtIndex:j]);
     }
 }
 

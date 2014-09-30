@@ -160,13 +160,15 @@
 
 - (IBAction) showInfo
 {
-    UIAlertView *showView = [[UIAlertView alloc]
+    UIAlertView * showView = [[UIAlertView alloc]
                              initWithTitle:@"How to Play Sudoku:"
-                             message:@"\n The numbers 1 though 9 should appear only once in each row, column, and subgrid. \n There is only one possible solution, so choose wisely! \n To place a number into the grid, select a number in the number pad (below the grid), then select the cell you would like to place the number in. \n If you think you have placed a number incorrectly, you can use the erase button to clear your input or choose to replace it with a different number. \n To erase all of the numbers that you have put in the grid (i.e. you are stuck and have no more moves), you can tap the \"Start Over\" button and replay the same game. \n At any time, if you want to play a different Sudoku board, you can tap the \"New Game\" button. \n If you try to place a number in a row, column, or subgrid where that number already exists, you will receive a warning message telling you that you cannot place that number there. \n Once you have filled in the entire grid, you win! Good luck :)"
+                             message:@"\n The numbers 1 though 9 should appear only once in each row, column, and subgrid. \n There is only one possible solution, so choose wisely! \n \n To place a number in the grid, select a number in the number pad, then select the cell where you would like to place the number. \n If you think you have placed a number incorrectly, you can use the erase button to clear your input or choose to replace it with a different number. \n \n To erase all of the numbers that you have put in the grid (i.e. you are stuck and have no more moves), you can tap the \"Start Over\" button and replay the same game. \n At any time, if you want to play a different Sudoku board, you can tap the \"New Game\" button. \n If you try to place a number in a row, column, or subgrid where that number already exists, you will receive a warning message telling you that you cannot place that number there. \n \n Once you have filled in the entire grid, you win! Good luck :)"
                              delegate:nil
                              cancelButtonTitle:@"Close"
                              otherButtonTitles:nil];
-    [showView show];    
+    [showView show];
+    showView.bounds = CGRectMake(50,50,400,400);
+
 }
 
 - (void)didReceiveMemoryWarning
